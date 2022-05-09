@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_coutup/data/count_data.dart';
 import 'package:riverpod_coutup/provider.dart';
 
 void main() {
@@ -53,23 +54,35 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
               ),
             ),
             Text(
-              ref.watch(countProvider).toString(),
+              ref.watch(countDataPrivider).count.toString(),
               style: Theme.of(context).textTheme.headline4,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 FloatingActionButton(
-                  onPressed: () => ref
-                      .read(countProvider.state)
-                      .update((state) => state + 1),
+                  onPressed: () {
+                    CountData countData = ref.read(countDataPrivider);
+                    ref.read(countDataPrivider.state).update((state) {
+                      return countData.copyWith(
+                        count: countData.count + 1,
+                        countUp: countData.countUp + 1,
+                      );
+                    });
+                  },
                   tooltip: 'Increment',
                   child: const Icon(CupertinoIcons.plus),
                 ),
                 FloatingActionButton(
-                  onPressed: () => ref
-                      .read(countProvider.state)
-                      .update((state) => state - 1),
+                  onPressed: () {
+                    CountData countData = ref.read(countDataPrivider);
+                    ref.read(countDataPrivider.state).update((state) {
+                      return countData.copyWith(
+                        count: countData.count - 1,
+                        countDown: countData.countDown + 1,
+                      );
+                    });
+                  },
                   tooltip: 'Increment',
                   child: const Icon(CupertinoIcons.minus),
                 ),
@@ -77,17 +90,20 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
-                Text('1'),
-                Text('2'),
+              children: [
+                Text(ref.watch(countDataPrivider).countUp.toString()),
+                Text(ref.watch(countDataPrivider).countDown.toString()),
               ],
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () =>
-            ref.read(countProvider.state).update((state) => state + 1),
+        onPressed: () {
+          ref.read(countDataPrivider.state).update((state) {
+            return const CountData(count: 0, countUp: 0, countDown: 0);
+          });
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.refresh),
       ),
