@@ -1,6 +1,5 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'count_data.dart';
@@ -12,11 +11,32 @@ part of 'count_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 CountData _$CountDataFromJson(Map<String, dynamic> json) {
   return _CountData.fromJson(json);
 }
+
+/// @nodoc
+class _$CountDataTearOff {
+  const _$CountDataTearOff();
+
+  _CountData call(
+      {required int count, required int countUp, required int countDown}) {
+    return _CountData(
+      count: count,
+      countUp: countUp,
+      countDown: countDown,
+    );
+  }
+
+  CountData fromJson(Map<String, Object?> json) {
+    return CountData.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $CountData = _$CountDataTearOff();
 
 /// @nodoc
 mixin _$CountData {
@@ -69,23 +89,22 @@ class _$CountDataCopyWithImpl<$Res> implements $CountDataCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_CountDataCopyWith<$Res> implements $CountDataCopyWith<$Res> {
-  factory _$$_CountDataCopyWith(
-          _$_CountData value, $Res Function(_$_CountData) then) =
-      __$$_CountDataCopyWithImpl<$Res>;
+abstract class _$CountDataCopyWith<$Res> implements $CountDataCopyWith<$Res> {
+  factory _$CountDataCopyWith(
+          _CountData value, $Res Function(_CountData) then) =
+      __$CountDataCopyWithImpl<$Res>;
   @override
   $Res call({int count, int countUp, int countDown});
 }
 
 /// @nodoc
-class __$$_CountDataCopyWithImpl<$Res> extends _$CountDataCopyWithImpl<$Res>
-    implements _$$_CountDataCopyWith<$Res> {
-  __$$_CountDataCopyWithImpl(
-      _$_CountData _value, $Res Function(_$_CountData) _then)
-      : super(_value, (v) => _then(v as _$_CountData));
+class __$CountDataCopyWithImpl<$Res> extends _$CountDataCopyWithImpl<$Res>
+    implements _$CountDataCopyWith<$Res> {
+  __$CountDataCopyWithImpl(_CountData _value, $Res Function(_CountData) _then)
+      : super(_value, (v) => _then(v as _CountData));
 
   @override
-  _$_CountData get _value => super._value as _$_CountData;
+  _CountData get _value => super._value as _CountData;
 
   @override
   $Res call({
@@ -93,7 +112,7 @@ class __$$_CountDataCopyWithImpl<$Res> extends _$CountDataCopyWithImpl<$Res>
     Object? countUp = freezed,
     Object? countDown = freezed,
   }) {
-    return _then(_$_CountData(
+    return _then(_CountData(
       count: count == freezed
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -145,13 +164,12 @@ class _$_CountData with DiagnosticableTreeMixin implements _CountData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CountData &&
+            other is _CountData &&
             const DeepCollectionEquality().equals(other.count, count) &&
             const DeepCollectionEquality().equals(other.countUp, countUp) &&
             const DeepCollectionEquality().equals(other.countDown, countDown));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -161,8 +179,8 @@ class _$_CountData with DiagnosticableTreeMixin implements _CountData {
 
   @JsonKey(ignore: true)
   @override
-  _$$_CountDataCopyWith<_$_CountData> get copyWith =>
-      __$$_CountDataCopyWithImpl<_$_CountData>(this, _$identity);
+  _$CountDataCopyWith<_CountData> get copyWith =>
+      __$CountDataCopyWithImpl<_CountData>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -172,21 +190,21 @@ class _$_CountData with DiagnosticableTreeMixin implements _CountData {
 
 abstract class _CountData implements CountData {
   const factory _CountData(
-      {required final int count,
-      required final int countUp,
-      required final int countDown}) = _$_CountData;
+      {required int count,
+      required int countUp,
+      required int countDown}) = _$_CountData;
 
   factory _CountData.fromJson(Map<String, dynamic> json) =
       _$_CountData.fromJson;
 
   @override
-  int get count => throw _privateConstructorUsedError;
+  int get count;
   @override
-  int get countUp => throw _privateConstructorUsedError;
+  int get countUp;
   @override
-  int get countDown => throw _privateConstructorUsedError;
+  int get countDown;
   @override
   @JsonKey(ignore: true)
-  _$$_CountDataCopyWith<_$_CountData> get copyWith =>
+  _$CountDataCopyWith<_CountData> get copyWith =>
       throw _privateConstructorUsedError;
 }
